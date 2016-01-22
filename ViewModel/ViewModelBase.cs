@@ -54,6 +54,21 @@ namespace SamOatesLibrary.WPF.ViewModel
         /// Raise a property changed event
         /// </summary>
         /// <param name="property">The name of the property to rasie an event for</param>
+        protected void RaisePropertyChangedNotifaction<T>(Expression<Func<T>> property)
+        {
+            var propertyInfo = ((MemberExpression)property.Body).Member as PropertyInfo;
+            if (propertyInfo == null)
+            {
+                throw new ArgumentException("The lambda expression 'property' should point to a valid Property");
+            }
+
+            RaisePropertyChangedNotifaction(propertyInfo.Name);
+        }
+
+        /// <summary>
+        /// Raise a property changed event
+        /// </summary>
+        /// <param name="property">The name of the property to rasie an event for</param>
         protected void RaisePropertyChangedNotifaction(String property)
         {
             PropertyChangedEventHandler handler = this.PropertyChanged;
