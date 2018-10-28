@@ -82,6 +82,9 @@
   <ItemGroup>
     <Compile Include="Command\DelegateCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\BasicEventAggregator.cs" />
+    <Compile Include="System\EventAggregator\IEventAggregatorEvent.cs" />
+    <Compile Include="System\EventAggregator\ISubscribable.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
